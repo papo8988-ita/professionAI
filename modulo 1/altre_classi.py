@@ -4,15 +4,15 @@ Created on Mon Aug  5 17:27:09 2024
 
 @author: JacopoBaldacci
 """
-
 class Contatto:
-    def __init__(self, nome, cognome, numero_mobile, numero_fisso):
+    def __init__(self, nome, cognome, numero_mobile, numero_fisso, data_inserimento):
         self.nome = nome
         self.cognome = cognome
-        self.numero_mobile = self.checkNumeroTelefono(numero_mobile, "mobile")
-        self.numero_fisso = self.checkNumeroTelefono(numero_fisso, "fisso")
+        self.numero_mobile = self.check_numero_telefono(numero_mobile, "mobile")
+        self.numero_fisso = self.check_numero_telefono(numero_fisso, "fisso")
+        self.data_inserimento = data_inserimento
         
-    def getData(self):
+    def get_data(self):
         """
 
         Returns
@@ -24,11 +24,12 @@ class Contatto:
         dati = {"nome": self.nome,
                 "cognome": self.cognome,
                 "numero mobile": self.numero_mobile,
-                "numero fisso": self.numero_fisso}
+                "numero fisso": self.numero_fisso, 
+                "data inserimento": self.data_inserimento}
         return dati
         
         
-    def checkNumeroTelefono(numero_telefono, tipo):
+    def check_numero_telefono(self, numero_telefono, tipo):
         """
 
         Parameters
@@ -55,3 +56,5 @@ class Contatto:
             if len(numero_telefono) != 10:
                 raise Exception("il numero di telefono mobile avere 10 cifre, di cui 3 per il prefisso! ")
         return numero_telefono
+    
+    
