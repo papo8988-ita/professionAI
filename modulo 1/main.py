@@ -5,14 +5,14 @@ Created on Mon Aug  5 17:16:20 2024
 @author: JacopoBaldacci
 """
 
-import logger as log ## logger non va, trovare altra libreria
+import logging as log 
 from os import path
 from argparse import ArgumentParser, RawTextHelpFormatter
 
 from rubrica import Rubrica
 
 def main(args_main):
-    # log.info('+++++++++      Program Started  +++++++++   ')
+    log.info('+++++++++      Program Started  +++++++++   ')
 
     try:
         rubrica = Rubrica([])
@@ -20,7 +20,7 @@ def main(args_main):
     
     except Exception as err:
    
-        # log.error('######### Program Ended with Errors ######### {}'.format(err))
+        log.error('######### Program Ended with Errors ######### {}'.format(err))
         print(err)
 
         return None
