@@ -1,0 +1,49 @@
++++++++++ FUNZIONAMENTO DELLA RUBRICA TELEFONICA ++++++++++++
+
+Questo programma permette di creare una rubrica telefonica utilizzando il prompt dei comandi. 
+All'esecuzione del programma verrà aperta la lista contatti salvata dopo l'ultimo utilizzo; in caso di primo utilizzo verrà creata una rubrica vuota.
+
+Verrà visualizzato il menù delle possibili operazioni; di seguito una descrizione dettagliata:
+
+ - Aggiungi nuovo contatto: 
+	permette di aggiungere un nuovo contatto inserendo nome, cognome, numero mobile e numero fisso.
+	Il nome non puà essere vuoto, il numero fisso deve iniziare per 0 e il numero mobile deve iniziare per 3 e avere 10 cifre (3 per il prefisso + altre 7 cifre).
+	Non è possibile inserire un contatto con nome e cognome uguali ad uno già esistente.
+	I contatti vengono sempre ordinati per Cognome e per Nome dopo ogni inserimento.
+
+ - Visualizza contatti presenti:
+	stampa la lista dei contatti presenti in rubrica, mostrando i seguenti dati: nome, cognome, numero fisso, numero mobile e data di inserimento
+
+- Cerca un contatto:
+	inserendo una stringa il programma cerca nella rubrica un contatto che contiene la stringa inserita nel nome o nel cognome e visualizza i risultati
+
+ - Modifica un contatto:
+	effettua una ricerca come in "Cerca un contatto". E' possibile modificare un campo di uno dei contatti trovati.
+	I contatti vengono successivamente riordinati.
+
+ - Elimina un contatto:
+	effettua una ricerca come in "Cerca un contatto". E' possibile eliminare uno dei contatti trovati
+
+ - Esporta la rubrica in un file json: 
+	Esporta la rubrica in un file json, salvandolo nella cartella di lavoro con il nome "lista_contatti_json"
+
+ - Importa contatti da file json specificando il percorso:
+	Verrà richiesto di inserire il percorso ad un file json che deve avere il seguente formato:
+		[
+    			{
+       				"nome": "prova",
+        			"cognome": "prova",
+        			"numero mobile": "3xxxxxxxxx",
+        			"numero fisso": "0xxxxxxxx"
+    			},
+    			{
+        			"nome": "prova2",
+        			"cognome": "prova2",
+        			"numero mobile": "3xxxxxxxxx",
+        			"numero fisso": ""
+    			},
+		]
+	I contatti devono rispettare le stesse regole previste per l'inserimento manuale.
+	Solo i contatti validi saranno inseriti in rubrica
+
+
