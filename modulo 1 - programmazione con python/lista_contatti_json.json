@@ -1,30 +1,20 @@
 [
     {
-        "nome": "luigi",
-        "cognome": "Aaaaa",
-        "numero mobile": "3287645487",
-        "numero fisso": "",
-        "data inserimento": "09/08/2024 17:26:01"
+        "nome": "Alphonse", 
+        "cognome": "Elric",
+        "numero mobile": "3494658754",
+        "numero fisso": ""
     },
     {
-        "nome": "Jacopo",
-        "cognome": "Baldaci",
-        "numero mobile": "1498970832",
-        "numero fisso": "0586854665",
-        "data inserimento": "09/08/2024 16:15:16"
+        "nome": "Roy",
+        "cognome": "Mustang",
+        "numero mobile": "3287445885",
+        "numero fisso": ""
     },
     {
-        "nome": "im",
-        "cognome": "mad",
-        "numero mobile": "3298549648",
-        "numero fisso": "5254845",
-        "data inserimento": "09/08/2024 16:14:39"
-    },
-    {
-        "nome": "pro",
-        "cognome": "prova21",
-        "numero mobile": "",
-        "numero fisso": "",
-        "data inserimento": "09/08/2024 17:25:52"
+        "nome": "Maes",
+        "cognome": "Hughes",
+        "numero mobile": "6465479854",
+        "numero fisso": "051245645"
     }
 ]

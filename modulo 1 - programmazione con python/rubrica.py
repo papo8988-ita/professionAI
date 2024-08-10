@@ -37,7 +37,8 @@ class Rubrica:
                 self._ordina_contatti()
                 print("nuovo contatto inserito\n")
                 return True
-            
+    
+    # i metodi esposti di ricerca, modifica e eliminazione di un contatto chiamano al loro interno un metodo non esposto che svolge l'operazione vera e propria   
     def cerca_contatto(self):
         while True:
             stringa_ricerca = input("inserisci nome o cognome (anche parziale) del contatto che cerchi (0 per tornare indietro): ")
@@ -59,7 +60,6 @@ class Rubrica:
                 else:
                    print("nessun risultato trovato \n")
         
-           
     def modifica_contatto(self):
         risultati = self.cerca_contatto()
         if risultati:
@@ -118,10 +118,6 @@ class Rubrica:
             json.dump(lista_contatti_export, json_file, indent=4)
         print(f"lista contatti salvata in formato json nella cartella {self.path}\n")
         
-    def salva_lista_contatti(self):
-        with open('lista_contatti.pkl', 'wb') as file:
-            pickle.dump(self.lista_contatti, file)
-        
     def importa_lista_contatti_da_json(self):
         percorso_file = input("inserisci il percorso del file: ")
         if os.path.exists(percorso_file):
@@ -154,6 +150,11 @@ class Rubrica:
         
     def get_numero_contatti(self):
         return len(self.lista_contatti)
+        
+    def salva_lista_contatti(self):
+        # salvataggio in file .pkl alla chiusura del programma
+        with open('lista_contatti.pkl', 'wb') as file:
+            pickle.dump(self.lista_contatti, file)
         
     
     # %%=======================================================================
@@ -199,6 +200,7 @@ class Rubrica:
         return risultati
     
     def _importa_lista_contatti(self):
+        # import del file .pkl ottenuto dopo l'ultimo salvataggio. Se non esiste viene inizializzata una lista vuota
         path_lista_contatti = self.path+"\\lista_contatti.pkl"
         if os.path.exists(path_lista_contatti):
             with open('lista_contatti.pkl', 'rb') as file:
