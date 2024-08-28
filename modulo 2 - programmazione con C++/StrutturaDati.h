@@ -52,24 +52,34 @@ public:
     // inserimento persone
     void inserisciCliente() {
         Cliente c;
+        std::cout << "Inserisci codice cliente: ";
+        std::cin >> c.codiceCliente;
+        // Controllo di eventuali duplicati
+        if (isCodiceClienteDuplicato(c.codiceCliente)) {
+            std::cerr << "\nERRORE: Esiste già un cliente con questo codice.\n";
+            return;
+        }
         std::cout << "Inserisci nome cliente: ";
         std::cin >> c.nome;
         std::cout << "Inserisci cognome cliente: ";
         std::cin >> c.cognome;
-        std::cout << "Inserisci codice cliente: ";
-        std::cin >> c.codiceCliente;
 
         clienti.push_back(c);
     }
 
     void inserisciVenditore() {
         Venditore v;
+        std::cout << "Inserisci numero di matricola del venditore: ";
+        std::cin >> v.numeroMatricola;
+        // Controllo di eventuali duplicati
+        if (isCodiceVenditoreDuplicato(v.numeroMatricola)) {
+            std::cerr << "\nERRORE: Esiste già un venditore con questo numero di matricola.\n";
+            return;
+        }
         std::cout << "Inserisci nome venditore: ";
         std::cin >> v.nome;
         std::cout << "Inserisci cognome venditore: ";
         std::cin >> v.cognome;
-        std::cout << "Inserisci numero di matricola del venditore: ";
-        std::cin >> v.numeroMatricola;
 
         venditori.push_back(v);
     }
@@ -584,6 +594,24 @@ private:
                 if (contratto.codiceContratto == codice) {
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+    
+    bool isCodiceClienteDuplicato(const std::string& codiceCliente) const {
+        for (const auto& cliente : clienti) {
+            if (cliente.codiceCliente == codiceCliente) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    bool isCodiceVenditoreDuplicato(const std::string& numeroMatricola) const {
+        for (const auto& venditore : venditori) {
+            if (venditore.numeroMatricola == numeroMatricola) {
+                return true;
             }
         }
         return false;
