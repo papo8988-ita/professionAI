@@ -8,11 +8,13 @@ void mostraAiuto() {
 	          " e numero di matricola.\n\n";
 	std::cout << "Inserisci nuovo appuntamento: Permette di aggiungere un nuovo appuntamento al sistema; "
 	          "dobbiamo selezionare un cliente e un venditore presenti nel nostro sistema e inserire i dati "
-	          "dell'appuntamento: data, luogo e stato (annulato, previsto, avvenuto).\n\n";
+	          "dell'appuntamento: data, luogo e stato (annulato, previsto, avvenuto). Ogni appuntamento è "
+	          "codificato da un codice che deve essere univoco.\n\n";
 	std::cout << "Inserisci nuovo contratto: Permette di aggiungere un nuovo contratto al sistema; "
 	          "dobbiamo selezionare un cliente e un venditore presenti nel nostro sistema e inserire i dati "
 	          "del contratto: tipo (moto, macchina, ecc), valore (in euro), data di inizio, durata (in mesi) "
-	          "e stato (valido, scaduto, sospeso).\n\n";
+	          "e stato (valido, scaduto, sospeso). Ogni contratto è codificato da un codice "
+	          "che deve essere univoco\n\n";
 	std::cout << "Cerca venditore: Consente di cercare un venditore esistente nel sistema e visualizzare"
 	          "i suoi dati, i suoi appuntamenti e i contratti stipulati.\n\n";
 	std::cout << "Cerca cliente: Consente di cercare un cliente esistente nel sistema e visualizzare "
