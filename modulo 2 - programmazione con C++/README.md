@@ -9,7 +9,7 @@ Il programma permette la gestione dei clienti e dei venditori di un'azienda di a
 
 - **Inserisci nuovo venditore**: Permette di aggiungere un nuovo venditore al sistema inserendo nome, cognome e numero di matricola (il numero di matricola deve essere univoco)
 
-- **Inserisci nuovo appuntamento**: Permette di aggiungere un nuovo appuntamento al sistema; dobbiamo selezionare un cliente e un venditore presenti nel nostro sistema e inserire i****** dati dell'appuntamento: data, luogo e stato (annulato, previsto, avvenuto). Ogni appuntamento è codificato da un codice che deve essere univoco
+- **Inserisci nuovo appuntamento**: Permette di aggiungere un nuovo appuntamento al sistema; dobbiamo selezionare un cliente e un venditore presenti nel nostro sistema e inserire i dati dell'appuntamento: data, luogo e stato (annulato, previsto, avvenuto). Ogni appuntamento è codificato da un codice che deve essere univoco
 	
 - **Inserisci nuovo contratto**: Permette di aggiungere un nuovo contratto al sistema; dobbiamo selezionare un cliente e un venditore presenti nel nostro sistema e inserire i dati del contratto: tipo (moto, macchina, ecc), valore (in euro), data di inizio, durata (in mesi)e stato (valido, scaduto, sospeso). Ogni appuntamento è codificato da un codice che deve essere univoco
 
