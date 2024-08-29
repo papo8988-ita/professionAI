@@ -6,6 +6,7 @@
 #include <string>
 #include <algorithm>
 #include <fstream>
+#include <cctype>
 #include "VenditoriClienti.h"
 
 class StrutturaDati {
@@ -322,8 +323,15 @@ private:
     // funzioni accessorie
     std::vector<size_t> ricercaVenditori(const std::string& ricerca) {
         std::vector<size_t> risultati;
+        std::string ricercaLower = toLower(ricerca);
+        
         for (size_t i = 0; i < venditori.size(); ++i) {
-            if (ricerca.empty() || venditori[i].nome.find(ricerca) != std::string::npos || venditori[i].cognome.find(ricerca) != std::string::npos) {
+            std::string nomeLower = toLower(venditori[i].nome);
+            std::string cognomeLower = toLower(venditori[i].cognome);
+            
+            if (ricercaLower.empty() || 
+                nomeLower.find(ricercaLower) != std::string::npos || 
+                cognomeLower.find(ricercaLower) != std::string::npos) {
                 risultati.push_back(i);
             }
         }
@@ -332,8 +340,15 @@ private:
 
     std::vector<size_t> ricercaClienti(const std::string& ricerca) {
         std::vector<size_t> risultati;
+        std::string ricercaLower = toLower(ricerca);
+        
         for (size_t i = 0; i < clienti.size(); ++i) {
-            if (ricerca.empty() || clienti[i].nome.find(ricerca) != std::string::npos || clienti[i].cognome.find(ricerca) != std::string::npos) {
+            std::string nomeLower = toLower(clienti[i].nome);
+            std::string cognomeLower = toLower(clienti[i].cognome);
+            
+            if (ricercaLower.empty() || 
+                nomeLower.find(ricercaLower) != std::string::npos || 
+                cognomeLower.find(ricercaLower) != std::string::npos) {
                 risultati.push_back(i);
             }
         }
@@ -615,6 +630,14 @@ private:
             }
         }
         return false;
+    }
+	
+	std::string toLower(const std::string& str) const {
+        std::string lowerStr = str;
+        std::transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), [](unsigned char c) {
+            return std::tolower(c);
+        });
+        return lowerStr;
     }
 };
 

@@ -2,30 +2,35 @@
 #include "StrutturaDati.h"
 
 void mostraAiuto() {
-	std::cout << "Inserisci nuovo cliente: Permette di aggiungere un nuovo cliente al sistema inserendo nome, cognome "
+	std::cout << "\n\nHELPER: \n";
+	std::cout << "1. Inserisci nuovo cliente: Permette di aggiungere un nuovo cliente al sistema inserendo nome, cognome "
 	          "e codice cliente.\n\n";
-	std::cout << "inserisci nuovo venditore: Permette di aggiungere un nuovo venditore al sistema inserendo nome, cognome"
+	std::cout << "2. inserisci nuovo venditore: Permette di aggiungere un nuovo venditore al sistema inserendo nome, cognome"
 	          " e numero di matricola.\n\n";
-	std::cout << "Inserisci nuovo appuntamento: Permette di aggiungere un nuovo appuntamento al sistema; "
+	std::cout << "3, Inserisci nuovo appuntamento: Permette di aggiungere un nuovo appuntamento al sistema; "
 	          "dobbiamo selezionare un cliente e un venditore presenti nel nostro sistema e inserire i dati "
 	          "dell'appuntamento: data, luogo e stato (annulato, previsto, avvenuto). Ogni appuntamento è "
 	          "codificato da un codice che deve essere univoco.\n\n";
-	std::cout << "Inserisci nuovo contratto: Permette di aggiungere un nuovo contratto al sistema; "
+	std::cout << "4. Inserisci nuovo contratto: Permette di aggiungere un nuovo contratto al sistema; "
 	          "dobbiamo selezionare un cliente e un venditore presenti nel nostro sistema e inserire i dati "
 	          "del contratto: tipo (moto, macchina, ecc), valore (in euro), data di inizio, durata (in mesi) "
 	          "e stato (valido, scaduto, sospeso). Ogni contratto è codificato da un codice "
 	          "che deve essere univoco\n\n";
-	std::cout << "Cerca venditore: Consente di cercare un venditore esistente nel sistema e visualizzare"
-	          "i suoi dati, i suoi appuntamenti e i contratti stipulati.\n\n";
-	std::cout << "Cerca cliente: Consente di cercare un cliente esistente nel sistema e visualizzare "
-	          " i suoi dati, i suoi appuntamenti e i contratti che ha stipulato.\n\n";
-	std::cout << "Modifica venditore: Permette di modificare i dati di un venditore esistente e di aggiornare "
+	std::cout << "5. Cerca venditore: Consente di cercare un venditore esistente nel sistema e visualizzare"
+	          "i suoi dati, i suoi appuntamenti e i contratti stipulati. Inserisci una stringa e il software"
+			  " cercherà tutti gli elementi che contengono quella stringa. La ricerca non è case sensitive. "
+			  "Lasciando il campo vuoto verranno visualizzati tutti i venditori presenti nel sistema.\n\n";
+	std::cout << "6. Cerca cliente: Consente di cercare un cliente esistente nel sistema e visualizzare "
+	          " i suoi dati, i suoi appuntamenti e i contratti che ha stipulato. Inserisci una stringa e il software"
+			  " cercherà tutti gli elementi che contengono quella stringa. La ricerca non è case sensitive. "
+			  "Lasciando il campo vuoto verranno visualizzati tutti i clienti presenti nel sistema.\n\n";
+	std::cout << "7. Modifica venditore: Permette di modificare i dati di un venditore esistente e di aggiornare "
 	          "lo stato di uno dei suoi contratti o di uno dei suoi appuntamenti.\n\n";
-	std::cout << "Modifica cliente: Permette di modificare i dati di un cliente esistente e di aggiornare "
+	std::cout << "8. Modifica cliente: Permette di modificare i dati di un cliente esistente e di aggiornare "
 	          "lo stato di uno dei suoi contratti o di uno dei suoi appuntamenti.\n\n";
-	std::cout << "Elimina venditore: Consente di eliminare un venditore dal sistema.\n\n";
-	std::cout << "Elimina cliente: Consente di eliminare un cliente dal sistema.\n\n";
-	std::cout << "Salva ed esci: Salva i dati correnti su file ed esce dal programma.\n\n\n\n";
+	std::cout << "9. Elimina venditore: Consente di eliminare un venditore dal sistema.\n\n";
+	std::cout << "10. Elimina cliente: Consente di eliminare un cliente dal sistema.\n\n";
+	std::cout << "11. Salva ed esci: Salva i dati correnti su file ed esce dal programma.\n\n\n\n";
 }
 
 int main() {
