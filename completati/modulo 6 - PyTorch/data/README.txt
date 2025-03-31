@@ -1,0 +1,1 @@
+dati in https://proai-datasets.s3.eu-west-3.amazonaws.com/dataset_food_classification.zip
