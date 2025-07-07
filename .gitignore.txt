@@ -1,1 +1,1 @@
-completati/modulo 7 - computer vision/data
+completati/modulo\ 7\ -\ computer\ vision/data/
