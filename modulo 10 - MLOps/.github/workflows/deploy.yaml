@@ -1,0 +1,58 @@
+name: Deploy Sentiment Model to Hugging Face
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # permette di eseguirlo manualmente
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Clona il repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Configura Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      # 3️⃣ Installa dipendenze
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install python-dotenv huggingface_hub transformers torch gradio
+
+      # 4️⃣ Imposta variabili d’ambiente
+      - name: Set environment variables
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          echo "HF_TOKEN=${{ secrets.HF_TOKEN }}" >> $GITHUB_ENV
+          echo "HF_USERNAME=tuo-username" >> $GITHUB_ENV
+          echo "HF_MODEL_REPO=twitter-sentiment-mlops" >> $GITHUB_ENV
+          echo "HF_SPACE_NAME=twitter-sentiment-space" >> $GITHUB_ENV
+          echo "OUTPUT_DIR=outputs" >> $GITHUB_ENV
+
+      # 5️⃣ (Opzionale) Esegui training del modello
+      # Se hai già outputs/, puoi saltarlo
+      - name: Train or skip training
+        run: |
+          if [ ! -d "outputs" ]; then
+            echo "🧠 Training del modello..."
+            python src/train.py
+          else
+            echo "✅ Modello già presente in outputs/, salto il training."
+          fi
+
+      # 6️⃣ Esegui il deploy su Hugging Face Hub
+      - name: Deploy model to Hugging Face Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python deploy_to_hub.py

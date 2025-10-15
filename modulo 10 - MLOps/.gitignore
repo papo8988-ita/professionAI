@@ -1,0 +1,7 @@
+**/__pycache__/
+outputs/
+logs/
+mlruns/
+.venv/
+.env
+.idea

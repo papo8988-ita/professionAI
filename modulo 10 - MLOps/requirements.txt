@@ -1,0 +1,14 @@
+# requirements.txt
+transformers>=4.30.0
+datasets>=2.9.0
+torch>=1.13.0
+evaluate
+mlflow>=2.3.0
+fastapi
+uvicorn[standard]
+evidently
+pytest
+python-dotenv
+huggingface-hub
+sentence-transformers
+requests

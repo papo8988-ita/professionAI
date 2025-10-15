@@ -1,0 +1,56 @@
+name: Train and Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run training (CPU - per dataset piccolo / demo)
+        env:
+          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+          MLFLOW_EXPERIMENT: sentiment-pipeline
+          MODEL_NAME: cardiffnlp/twitter-roberta-base-sentiment-latest
+        run: |
+          python src/train.py
+
+      - name: Publish model artifacts to Hugging Face Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ secrets.HF_REPO_ID }}
+        run: |
+          pip install huggingface_hub
+          python - <<'PY'
+from huggingface_hub import HfApi
+import os, shutil
+api = HfApi()
+repo_id = os.environ["HF_REPO_ID"]
+token = os.environ["HF_TOKEN"]
+# create repo if not exists
+api.create_repo(repo_id=repo_id, exist_ok=True, token=token, repo_type="model")
+# upload outputs folder
+from huggingface_hub import upload_folder
+upload_folder(
+    folder_path="outputs",
+    path_in_repo=".",
+    repo_id=repo_id,
+    token=token
+)
+print("Publish complete")
+PY
